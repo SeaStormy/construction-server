@@ -1,15 +1,32 @@
 import mongoose, { Document, Schema } from 'mongoose';
 
 export interface ISettings extends Document {
-  companyName: string;
-  email: string;
-  phone: string;
-  address: string;
-  socialMedia: {
-    facebook?: string;
-    twitter?: string;
-    instagram?: string;
-    linkedin?: string;
+  _id: string;
+  heroImage: string;
+  heroTitle: string;
+  heroDescription: string;
+  aboutTitle: string;
+  aboutDescription: string;
+  aboutImage: string;
+  contactEmail: string;
+  contactPhone: string;
+  contactAddress: string;
+  services: {
+    newConstruction: {
+      image: string;
+      title: string;
+      description: string;
+    };
+    renovations: {
+      image: string;
+      title: string;
+      description: string;
+    };
+    commercial: {
+      image: string;
+      title: string;
+      description: string;
+    };
   };
   createdAt: Date;
   updatedAt: Date;
@@ -17,35 +34,40 @@ export interface ISettings extends Document {
 
 const SettingsSchema: Schema = new Schema(
   {
-    companyName: {
+    _id: {
       type: String,
       required: true,
-      trim: true,
     },
-    email: {
-      type: String,
-      required: true,
-      trim: true,
-    },
-    phone: {
-      type: String,
-      required: true,
-      trim: true,
-    },
-    address: {
-      type: String,
-      required: true,
-      trim: true,
-    },
-    socialMedia: {
-      facebook: String,
-      twitter: String,
-      instagram: String,
-      linkedin: String,
+    heroImage: String,
+    heroTitle: String,
+    heroDescription: String,
+    aboutTitle: String,
+    aboutDescription: String,
+    aboutImage: String,
+    contactEmail: String,
+    contactPhone: String,
+    contactAddress: String,
+    services: {
+      newConstruction: {
+        image: String,
+        title: String,
+        description: String,
+      },
+      renovations: {
+        image: String,
+        title: String,
+        description: String,
+      },
+      commercial: {
+        image: String,
+        title: String,
+        description: String,
+      },
     },
   },
   {
     timestamps: true,
+    _id: false, // This tells Mongoose not to create an automatic _id field
   }
 );
 

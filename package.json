@@ -2,7 +2,7 @@
   "name": "construction-company-server",
   "version": "1.0.0",
   "description": "Backend server for construction company website",
-  "main": "dist/index.js",
+  "main": "index.js",
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon src/index.ts",
